@@ -1,0 +1,21 @@
+%li.dropdown
+  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    %i.fa.fa-user
+    =current_admin.firstname
+    =current_admin.lastname
+    %b.caret
+  %ul.dropdown-menu
+    %li
+      %a{:href => "#"}
+        %i.fa.fa-fw.fa-user
+        Profile
+    %li
+      %a{:href => "#"}
+        %i.fa.fa-fw.fa-gear
+        Settings
+    %li.divider
+    %li
+      =link_to admin_logout_path, method: "delete" do
+        %i.fa.fa-fw.fa-power-off
+        Log Out
+//SIDEBAR

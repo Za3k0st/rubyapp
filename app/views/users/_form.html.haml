@@ -1,0 +1,60 @@
+
+=render 'shared/profile_image'
+
+= simple_form_for [@user] do |f|
+  - if @user.errors.any?
+    #error_explanation.panel.panel-danger
+      %div.panel-heading
+        %h4.panel-title
+          = pluralize(@user.errors.count, "erreur")
+          détéctée(s) lors de la modification
+      %div.panel-body
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
+
+  .col-md-6{'style' => "margin-top:50px;"}
+    =f.label :firstname
+    =f.text_field :firstname, class:"form-control"
+    -if @user.errors[:firstname].present?
+      %h5.capitalize.text-danger
+        =@user.errors[:firstname].first
+
+  .col-md-6{'style' => "margin-top:50px;"}
+    =f.label :lastname
+    =f.text_field :lastname, class:"form-control"
+    -if @user.errors[:lastname].present?
+      %h5.capitalize.text-danger
+        =@user.errors[:lastname].first
+  %br
+  .col-md-6{'style' => "margin-top:30px;"}
+    =f.label :email
+    =f.text_field :email, class:"form-control"
+    -if @user.errors[:email].present?
+      %h5.capitalize.test-danger
+        =@user.errors[:email].first
+
+  .col-md-6{'style' => "margin-top:30px;"}
+
+    %div#btn-image.btn.btn-primary-ov{'style' => "margin-top:25px;width:100%;",:onclick => "$('#user_image').click();" }
+      Selectionnez un fichier...
+    .hidden-form
+      =f.input :image, as: :file,label:"Ajouter"
+    -if @user.errors[:image].present?
+      %h5.capitalize.test-danger
+        =@user.errors[:image].first
+
+  %br
+
+
+  .col-md-12{'style' => "margin-top:30px;"}
+    =f.label :password
+    =f.password_field :password, class:"form-control"
+
+  %br
+
+
+
+
+  .col-md-12{'style' => "margin-top:30px;"}
+    =f.submit "Sauvegarder", class:"btn btn-primary-ov",style:"width:100%;"

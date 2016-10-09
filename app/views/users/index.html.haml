@@ -1,0 +1,31 @@
+%h2
+	Gestion utilisateur
+%div.col-md-12
+	.table-responsive
+		%table.table.table-hover
+			%thead
+				%tr
+					%th ID
+					%th Prénom
+					%th Nom
+					%th Email
+					%th.text-center Modifier
+					%th.text-center Supprimer
+			%tbody
+				-@users.each do |u|
+					%tr
+						%th{'scope' => "row"}=u.id
+						%td=u.firstname
+						%td=u.lastname
+						%td=u.email
+						%td.text-center
+							%button.btn.btn-warning-ov
+								=link_to edit_user_path(u) do
+									Modifier
+						%td.text-center
+							%button.btn.btn-danger-ov
+								=link_to user_path(u),method: :delete, data: { confirm: 'Etes vous sûr ?' } do
+									Supprimer
+		=link_to new_user_path do
+			%button.btn.btn-primary-ov
+				Créer un nouvel utilisateur

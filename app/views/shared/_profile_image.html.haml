@@ -1,0 +1,12 @@
+
+%br
+%div.col-md-5
+	%hr{style:"margin-top:75px;border-color:black;opacity:0.3;border-width:2px;"}
+
+%div.col-md-2
+	-if @user.image.present?
+		=image_tag(@user.image.url, class:"img-responsive img-circle",style:"width:150px;height:150px;margin:auto;")
+	-else
+		=image_tag('admin/avatar', class:"img-responsive img-circle", style:"width:150px;height:150px;margin:auto;")
+%div.col-md-5
+	%hr{style:"margin-top:75px;border-color:black;opacity:0.3;border-width:2px;"}
