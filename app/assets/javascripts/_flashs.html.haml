@@ -1,0 +1,10 @@
+-if flash[:danger]
+	.alert.alert-danger.row.fade.in.alert-dismissible
+		%a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+		%strong Attention !
+		=flash[:danger]
+-if flash[:notice]
+	.alert.alert-success.row.fade.in.alert-dismissible
+		%a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+		%strong Félicitations !
+		=flash[:notice]

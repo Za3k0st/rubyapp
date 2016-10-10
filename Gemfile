@@ -41,7 +41,9 @@ gem 'sass-rails', '>= 3.2'
 
 gem 'web-console', group: :development
 
+gem 'gmaps4rails', '~> 2.1.2'
 
+gem 'jquery-datatables-rails', '~> 3.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

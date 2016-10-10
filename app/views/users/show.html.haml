@@ -1,6 +1,6 @@
 %div.col-md-12
   =render 'shared/title',title: "Profil de #{@user.firstname} #{@user.lastname}" , subtitle:@user.email
-
+  =render 'shared/flashs'
   =render 'shared/profile_image'
   .col-md-12.text-center{:style => "margin-top:10px;"}
     %h3="#{@user.firstname} #{@user.lastname}"

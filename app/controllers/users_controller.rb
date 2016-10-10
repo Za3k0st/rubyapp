@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @user.password = "default"
     if @user.save
       redirect_to @user
+      flash[:notice] = 'User created'
     else
       render :new
     end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:notice] = "Suppression réussi"
+      flash[:danger] = "User deleted"
       redirect_to users_path
     else
       flash[:danger] = "Suppression réussi"

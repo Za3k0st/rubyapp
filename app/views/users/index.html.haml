@@ -1,7 +1,8 @@
 %h2
 	Gestion utilisateur
 %div.col-md-12
-	.table-responsive
+	=render 'shared/flashs'
+	.table-responsive.datatable
 		%table.table.table-hover
 			%thead
 				%tr
@@ -19,13 +20,15 @@
 						%td=u.lastname
 						%td=u.email
 						%td.text-center
-							%button.btn.btn-warning-ov
-								=link_to edit_user_path(u) do
+							=link_to edit_user_path(u) do
+								%button.btn.btn-warning-ov
 									Modifier
 						%td.text-center
-							%button.btn.btn-danger-ov
-								=link_to user_path(u),method: :delete, data: { confirm: 'Etes vous sûr ?' } do
+							=link_to user_path(u),method: :delete, data: { confirm: 'Etes vous sûr ?' } do
+								%button.btn.btn-danger-ov
 									Supprimer
 		=link_to new_user_path do
 			%button.btn.btn-primary-ov
 				Créer un nouvel utilisateur
+
+#map
