@@ -3,15 +3,16 @@
   %head
     %title
       = full_title(yield(:title))
+    %script(src="https://www.gstatic.com/charts/loader.js")
+    %script(src="https://www.google.com/jsapi")
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = favicon_link_tag 'favicon.png'
     = csrf_meta_tags
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-
   %body
     %header.navbar.navbar-top.navbar-inverse{'style' => "border-radius:0px; background-color: #7dbedd; border-color: #7dbedd;"}
       .nav{'style' => "padding:10px;"}
@@ -23,7 +24,3 @@
               Users
     .container
       =yield
-
-
-  %script(src="//maps.google.com/maps/api/js?key=[AIzaSyA8Dv094i01cd2AXFd7WzXFupjLPTllDss]")
-  %script(src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js")
