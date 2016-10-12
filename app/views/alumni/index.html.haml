@@ -4,4 +4,25 @@
   %h1
     test
   / map div
-#regions_div{:style => "width: 50%;"}
+#regions_div{:style => "width: 80%;"}
+
+%hr
+
+= form_for_filterrific @filterrific do |f|
+  .row
+    .col-md-3
+      .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
+        %label Search
+        = f.text_field :search_query,
+                       :class => 'filterrific-periodically-observed form-control'
+
+#results
+  = render :partial => 'alumni/list',
+           :locals => { :users => @users }
+
+:javascript
+  $('.js-datepicker').datepicker();
+  $('#overlayTrigger').click(function(event) {
+    event.preventDefault();
+    $('body').chardinJs('start');
+  });

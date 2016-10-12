@@ -1,0 +1,20 @@
+%div.col-md-12
+  =render 'shared/title',title: "Profil de #{@user.firstname} #{@user.lastname}" , subtitle:@user.email
+  =render 'shared/flashs'
+  =render 'shared/profile_image'
+  .col-md-12.text-center{:style => "margin-top:10px;"}
+    %h3="#{@user.firstname} #{@user.lastname}"
+    %h4
+      =mail_to @user.email do
+        =@user.email
+    %h5
+      Date de création:
+      %b=@user.created_at.strftime("%F")
+    %h5
+      Dernière modification:
+      %b=@user.updated_at.strftime("%F")
+    %h5
+      =link_to edit_user_path(@user) do
+        Modifier utilisateur
+    %h5
+      = link_to "Add to Cart", contact_alumni_path(@user), class: 'btn'
