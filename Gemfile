@@ -44,9 +44,13 @@ gem 'web-console', group: :development
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
 gem 'gchart', '~> 1.0'
-
+gem 'will_paginate'
+gem 'filterrific'
+gem 'sprockets-rails', '2.3.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate-bootstrap'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
