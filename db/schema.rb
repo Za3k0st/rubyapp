@@ -11,20 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009112107) do
+ActiveRecord::Schema.define(version: 20161015050802) do
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "right"
-    t.string   "status"
-    t.string   "encrypted_password"
+  create_table "countries", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username",           limit: 255
+    t.string   "email",              limit: 255
+    t.string   "firstname",          limit: 255
+    t.string   "lastname",           limit: 255
+    t.string   "right",              limit: 255
+    t.string   "status",             limit: 255
+    t.string   "encrypted_password", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
-    t.string   "password"
+    t.string   "image",              limit: 255
+    t.string   "password",           limit: 255
+    t.string   "role",               limit: 255
+    t.string   "country",            limit: 255
+    t.string   "personal_email",     limit: 255
+    t.string   "educare_email",      limit: 255
+    t.string   "joining_date",       limit: 255
+    t.string   "ending_date",        limit: 255
+    t.string   "birthday",           limit: 255
+    t.string   "jobrole",            limit: 255
+    t.string   "phone",              limit: 255
   end
 
 end

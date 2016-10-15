@@ -14,8 +14,12 @@ class AlumniController < ApplicationController
   end
 
   def index
+    @test = ''
     @users = User.all
-
+    @users_by_country = User.group(:country_id).count
+    @users_by_country.each do |country|
+      @test += "['"+country[0]+"',"+country[1].to_s+"]"
+    end
     @filterrific = initialize_filterrific(
     User,
     params[:filterrific]
