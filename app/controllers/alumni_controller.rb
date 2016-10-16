@@ -6,12 +6,16 @@ class AlumniController < ApplicationController
     @users = User.all
     @users_by_country = User.group(:country_id).count
     @users_by_country.each do |country|
-      @countries = Country.all.where(id: country[0])
-      @test += "['"+@countries[0].name+"',"+country[1].to_s+"]"
+    @countries = Country.all.where(id: country[0])
+    @test += "['"+@countries[0].name+"',"+country[1].to_s+"]"
     end
     @filterrific = initialize_filterrific(
     User,
-    params[:filterrific]
+    params[:filterrific],
+    select_options: {
+        sorted_by: User.options_for_sorted_by,
+        with_country_id: Country.options_for_select
+      },
   ) or return
   @users = @filterrific.find.page(params[:page])
 

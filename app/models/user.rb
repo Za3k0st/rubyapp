@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  filterrific :default_filter_params => { sorted_by: 'created_at_desc' },
-              :available_filters => %w[
-                sorted_by
-                search_query
-                with_country_id
-                with_created_at_gte
-              ]
+  filterrific(
+  default_filter_params: { sorted_by: 'created_at_desc' },
+  available_filters: [
+                :sorted_by,
+                :search_query,
+                :with_country_id,
+                :with_created_at_gte
+              ])
   # default for will_paginate
   self.per_page = 10
 
@@ -50,5 +51,18 @@ class User < ActiveRecord::Base
     raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
   end
   }
+
+  scope :with_country_id, lambda { |country_ids|
+  where(country_id: [*country_ids])
+}
+
+  def self.options_for_sorted_by
+    [
+      ['Name (a-z)', 'name_asc'],
+      ['Registration date (newest first)', 'created_at_desc'],
+      ['Registration date (oldest first)', 'created_at_asc'],
+      ['Country (a-z)', 'country_name_asc']
+    ]
+  end
 
 end

@@ -1,5 +1,5 @@
 %div.col-md-12
-  =render 'shared/title',title: "Profil de #{@user.firstname} #{@user.lastname}" , subtitle:@user.email
+  =render 'shared/title',title: "Profile of #{@user.firstname} #{@user.lastname}" , subtitle:@user.email
   =render 'shared/flashs'
 .col-md-12{:style => "margin-top:10px;"}
   %h3="#{@user.firstname} #{@user.lastname}"
@@ -10,7 +10,7 @@
     Account Creation Date :
     %b=@user.created_at.strftime("%F")
   %h5
-    Laste Update : 
+    Laste Update :
     %b=@user.updated_at.strftime("%F")
   %h5
     = link_to "Contacter", contact_alumni_path(@user), class: 'btn'
