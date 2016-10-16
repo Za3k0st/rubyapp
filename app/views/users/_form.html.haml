@@ -1,6 +1,3 @@
-
-=render 'shared/profile_image'
-
 = simple_form_for [@user] do |f|
   - if @user.errors.any?
     #error_explanation.panel.panel-danger
@@ -12,42 +9,44 @@
         %ul
           - @user.errors.full_messages.each do |message|
             %li= message
-
-  .col-md-6{'style' => "margin-top:50px;"}
+  .col-md-3{'style' => "margin-top:50px;"}
     =f.label :firstname
     =f.text_field :firstname, class:"form-control"
     -if @user.errors[:firstname].present?
       %h5.capitalize.text-danger
         =@user.errors[:firstname].first
 
-  .col-md-6{'style' => "margin-top:50px;"}
+  .col-md-3{'style' => "margin-top:50px;"}
     =f.label :lastname
     =f.text_field :lastname, class:"form-control"
     -if @user.errors[:lastname].present?
       %h5.capitalize.text-danger
         =@user.errors[:lastname].first
   %br
-  .col-md-6{'style' => "margin-top:30px;"}
-    =f.label :email
-    =f.text_field :email, class:"form-control"
-    -if @user.errors[:email].present?
+  .col-md-3{'style' => "margin-top:30px;"}
+    =f.label :Educare_Email
+    =f.text_field :educare_email, class:"form-control"
+    -if @user.errors[:educare_email].present?
       %h5.capitalize.test-danger
-        =@user.errors[:email].first
-
-  .col-md-6{'style' => "margin-top:30px;"}
-
-    %div#btn-image.btn.btn-primary-ov{'style' => "margin-top:25px;width:100%;",:onclick => "$('#user_image').click();" }
-      Selectionnez un fichier...
-    .hidden-form
-      =f.input :image, as: :file,label:"Ajouter"
-    -if @user.errors[:image].present?
-      %h5.capitalize.test-danger
-        =@user.errors[:image].first
+        =@user.errors[:educare_email].first
 
   %br
 
+  .col-md-3{'style' => "margin-top:10px;"}
+    =f.label :Personal_email
+    =f.text_field :personal_email, class:"form-control"
+    -if @user.errors[:personal_email].present?
+      %h5.capitalize.test-danger
+        =@user.errors[:personal_email].first
 
-  .col-md-12{'style' => "margin-top:30px;"}
+  %br
+
+  .col-md-3{'style' => "margin-top:10px;"}
+    =f.label :country
+    =f.collection_select :country_id, Country.all, :id, :name, {:include_blank => 'Choose your country'}, {:class => 'form-control'}
+  %br
+
+  .col-md-3{'style' => "margin-top:10px;"}
     =f.label :password
     =f.password_field :password, class:"form-control"
 
@@ -56,5 +55,5 @@
 
 
 
-  .col-md-12{'style' => "margin-top:30px;"}
+  .col-md-3{'style' => "margin-top:30px;"}
     =f.submit "Sauvegarder", class:"btn btn-primary-ov",style:"width:100%;"

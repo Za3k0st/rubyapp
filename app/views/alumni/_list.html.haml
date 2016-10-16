@@ -8,12 +8,17 @@
 
 %table.table
   %tr
-    %th Email
+    %th Firstname
+    %th Lastname
     %th Registered at
+    %th
   - users.each do |user|
     %tr
-      %td= user.email
+      %td= user.firstname
+      %td= user.lastname
       %td= user.created_at.to_date.to_s(:long)
-
+      %td
+        =link_to alumni_path(user) do
+          Show profile
 .chardin_box{ :'data-position' => 'top', :'data-intro' => "will_paginate's paginator works as expected." }
   = will_paginate users, :renderer => BootstrapPagination::Rails

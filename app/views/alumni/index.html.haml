@@ -5,7 +5,7 @@
   function drawRegionsMap() {
 
     var data = google.visualization.arrayToDataTable([
-      ['Country', 'Popularity'],
+      ['Country', 'Interns'],
       test
     ]);
     var options = {};
@@ -16,25 +16,20 @@
   }
 
 
-%h2
+%span#title
   Alumni Network
-%div.col-md-12
-  %h1
-    test
-  / map div
-#regions_div{:style => "width: 80%;"}
-
 %hr
+%div.col-md-6
+  #regions_div{:style => "width: 100%;"}
 
-
-
-= form_for_filterrific @filterrific do |f|
-  .row
-    .col-md-3
-      .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
-        %label Search
-        = f.text_field :search_query,
-                       :class => 'filterrific-periodically-observed form-control'
+%div.col-md-6
+  = form_for_filterrific @filterrific do |f|
+    .row
+      .col-md-3
+        .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
+          %label Search
+          = f.text_field :search_query,
+                         :class => 'filterrific-periodically-observed form-control'
 
 #results
   = render :partial => 'alumni/list',

@@ -1,5 +1,5 @@
 %h2
-	Gestion utilisateur
+	Users Manager
 %div.col-md-12
 	=render 'shared/flashs'
 	.table-responsive.datatable
@@ -7,11 +7,11 @@
 			%thead
 				%tr
 					%th ID
-					%th Prénom
-					%th Nom
+					%th Firstname
+					%th Name
 					%th Email
-					%th.text-center Modifier
-					%th.text-center Supprimer
+					%th.text-center
+					%th.text-center
 			%tbody
 				-@users.each do |u|
 					%tr
@@ -21,12 +21,12 @@
 						%td=u.email
 						%td.text-center
 							=link_to edit_user_path(u) do
-								%button.btn.btn-warning-ov
-									Modifier
+								%button.btn.btn-primary
+									Update
 						%td.text-center
-							=link_to user_path(u),method: :delete, data: { confirm: 'Etes vous sûr ?' } do
-								%button.btn.btn-danger-ov
-									Supprimer
+							=link_to user_path(u),method: :delete, data: { confirm: 'Are you sure ?' } do
+								%button.btn.btn-danger
+									Delete
 		=link_to new_user_path do
-			%button.btn.btn-primary-ov
-				Créer un nouvel utilisateur
+			%button.btn.btn-success
+				Create a new user

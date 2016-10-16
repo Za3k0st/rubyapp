@@ -1,20 +1,13 @@
-.collapse.navbar-collapse.navbar-ex1-collapse
-  %ul.nav.navbar-nav.side-nav
-    %li{:class => ('active' if @page == "dashboard")}
-      =link_to admin_root_path do
-        %i.fa.fa-fw.fa-dashboard
-        Dashboard
-    %li{:class => ('active' if @page == "administrateurs")}
-      %a{:href => ""}
-        %i.fa.fa-fw.fa-user-plus
-        Administrateurs
-
-    %li{:class => ('active' if @page == "utilisateurs")}
-      =link_to admin_users_path do
-        %i.fa.fa-fw.fa-users
-        Utilisateurs
-
-    %li{:class => ('active' if @page == "articles")}
-      =link_to admin_articles_path do
-        %i.fa.fa-fw.fa-pencil
-        Articles
+%header.navbar.navbar-top.navbar-inverse{'style' => "padding: 10px; border-radius:0px; background-color: #7dbedd; border-color: #7dbedd;"}
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav.navbar-left
+      =image_tag("shared/logo.png", class:"img-responsive", style:"width: 400px; ")
+    %ul.nav.navbar-nav.navbar-left
+      %li
+        =link_to users_path, :class => "navbar-brand" do
+          %i.fa.fa-fw.fa-user
+          Users
+      %li
+        =link_to users_path, :class => "navbar-brand" do
+          %i.fa.fa-fw.fa-users
+          Alumni
