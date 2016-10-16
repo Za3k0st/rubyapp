@@ -1,18 +1,6 @@
 class AlumniController < ApplicationController
 
-  def show
-
-    @user = User.find(params[:id])
-  end
-
-  def contact
-    @user = User.find(params[:id])
-    if request.post?
-      UserMailer.welcome_email(@user).deliver_now
-      redirect_to action: "show", id: @user.id
-    end
-  end
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @test = ''
     @users = User.all
@@ -31,6 +19,18 @@ class AlumniController < ApplicationController
   respond_to do |format|
     format.html
     format.js
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def contact
+    @user = User.find(params[:id])
+    if request.post?
+      UserMailer.welcome_email(@user).deliver_now
+      redirect_to action: "show", id: @user.id
+    end
   end
 
   rescue ActiveRecord::RecordNotFound => e

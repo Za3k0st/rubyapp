@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post "alumni/contact/:id"    => "alumni#contact"
 
   resources :users
-
   resources :alumni do
   get :contact, :on => :member
   end

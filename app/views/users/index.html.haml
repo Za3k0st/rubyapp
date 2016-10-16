@@ -1,24 +1,25 @@
-%h2
+%span#title
 	Users Manager
+%hr
 %div.col-md-12
 	=render 'shared/flashs'
 	.table-responsive.datatable
-		%table.table.table-hover
+		%table.table.table-hover#users
 			%thead
 				%tr
-					%th ID
 					%th Firstname
 					%th Name
-					%th Email
+					%th Personal Email
+					%th Educare Email
 					%th.text-center
 					%th.text-center
 			%tbody
 				-@users.each do |u|
 					%tr
-						%th{'scope' => "row"}=u.id
 						%td=u.firstname
 						%td=u.lastname
-						%td=u.email
+						%td=u.personal_email
+						%td=u.educare_email
 						%td.text-center
 							=link_to edit_user_path(u) do
 								%button.btn.btn-primary
@@ -30,3 +31,8 @@
 		=link_to new_user_path do
 			%button.btn.btn-success
 				Create a new user
+
+:javascript
+	$('#users').DataTable({
+	  responsive: true
+	});

@@ -19,17 +19,16 @@
 %span#title
   Alumni Network
 %hr
-%div.col-md-6
+%div.col-md-12
   #regions_div{:style => "width: 100%;"}
 
-%div.col-md-6
-  = form_for_filterrific @filterrific do |f|
-    .row
-      .col-md-3
-        .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
-          %label Search
-          = f.text_field :search_query,
-                         :class => 'filterrific-periodically-observed form-control'
+= form_for_filterrific @filterrific do |f|
+  .row
+    .col-md-3
+      .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
+        %label Search
+        = f.text_field :search_query,
+                       :class => 'filterrific-periodically-observed form-control'
 
 #results
   = render :partial => 'alumni/list',

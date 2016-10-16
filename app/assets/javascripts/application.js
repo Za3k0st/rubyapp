@@ -15,5 +15,4 @@
 //= require jquery
 //= require bootstrap
 //= require summernote
-
-      
+//= require dataTables/jquery.dataTables
