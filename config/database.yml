@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: ruby_production
-  username: lmptl
-  password: 945070199c0b4b6ab8030424673eec71
+  adapter: postgresql
+  encoding: utf8
+  database: d954tv1si7kn7g
+  pool: 5
+  username: hxrfwihmambovi    #-> *** data from heroku's postgres user details page
+  password: G06PkShb1O-v7cFoZLnEuASzmk
+  host: ec2-79-125-5-94.eu-west-1.compute.amazonaws.com
