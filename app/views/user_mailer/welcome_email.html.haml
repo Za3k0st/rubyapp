@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Bienvenue sur boomerang2017.fr, #{@user.firstname}
+    %p
+      Vous vous êtes bien enregistré comme militant,
+      votre nom d'utilisateur est : #{@user.email}.
+      %br/
+    %p
+      Pour valider votre adresse électronique, cliquez sur le lien suivant: #{@url}.
+    %p Merci de votre aide et ONLR !
