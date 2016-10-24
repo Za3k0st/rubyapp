@@ -1,3 +1,48 @@
-%h1.text-center
-  Welcome to your Intranet Platform
-%h5.text-center
+:javascript
+  google.charts.load('upcoming', {'packages':['geochart']});
+  google.charts.setOnLoadCallback(drawRegionsMap);
+  var test = #{@test}
+  function drawRegionsMap() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Country', 'Interns'],
+      test
+    ]);
+    var options = {};
+
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+    chart.draw(data, options);
+  }
+
+
+%span#title
+  Alumni Networkas
+%hr
+%div.col-md-8
+  #regions_div{:style => "width: 100%;"}
+
+%div.col-md-4
+  = form_for_filterrific @filterrific do |f|
+    .row
+    #results
+      .col-md-5
+        .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
+          %label Search
+          = f.text_field :search_query,:class => 'filterrific-periodically-observed form-control'
+      .col-md-5
+        .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by first name, last name, or email.' }
+          %label Country
+          = f.select(:with_country_id,@filterrific.select_options[:with_country_id],{ include_blank: '- Any -' }, {:class => 'filterrific-periodically-observed form-control'})
+        =f.submit "Submit", class:"btn btn-primary-ov"
+      = render_filterrific_spinner
+%div.row
+%h3 Results
+= render :partial => 'home/list',:locals => { :users => @users }
+
+:javascript
+  $('.js-datepicker').datepicker();
+  $('#overlayTrigger').click(function(event) {
+    event.preventDefault();
+    $('body').chardinJs('start');
+  });

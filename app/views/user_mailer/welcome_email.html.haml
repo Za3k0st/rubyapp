@@ -1,14 +1,17 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-  %body
-    %h1
-      Bienvenue sur boomerang2017.fr, #{@user.firstname}
-    %p
-      Vous vous êtes bien enregistré comme militant,
-      votre nom d'utilisateur est : #{@user.email}.
-      %br/
-    %p
-      Pour valider votre adresse électronique, cliquez sur le lien suivant: #{@url}.
-    %p Merci de votre aide et ONLR !
+%p{:style => "font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"}
+  Bonjour #{@user.firstname}
+  %br
+  Merci de nous rejoindre, une
+  %strong
+    dernière étape
+  est nécéssaire avant que vous puissiez pleinement profiter de votre compte.
+  %br
+  %br
+  Cliquez sur ce lien pour confirmer votre compte :
+  %br
+  %br
+  %span{:style => "text-align:center"}
+    cliquez ici
+  %br
+  %br
+  Merci de nous faire confiance

@@ -5,11 +5,13 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-  post "alumni/contact/:id"    => "alumni#contact"
 
   resources :users
-  resources :alumni do
-  get :contact, :on => :member
+
+  resources :home do
+    member do
+    post 'contact'
+  end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
